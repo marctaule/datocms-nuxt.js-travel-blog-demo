@@ -123,6 +123,14 @@ export default {
             }
           }
 
+          page: blog {
+            seo: _seoMetaTags {
+              attributes
+              content
+              tag
+            }
+          }
+
           posts: allPosts(first: 10, orderBy: _firstPublishedAt_DESC) {
             id
             title
@@ -162,7 +170,7 @@ export default {
       return
     }
 
-    return toHead(this.site.favicon)
+    return toHead(this.site.favicon, this.page.seo)
   }
 }
 </script>
